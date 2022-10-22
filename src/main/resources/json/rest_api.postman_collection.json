@@ -1,0 +1,1202 @@
+
+{
+	"id": "project.id",
+	"name": "ci_gs2e_biblio",
+  	"description": "",
+	"order": [],
+	"timestamp": 1497267117086,
+	"owner": "1151918",
+	"public": false,
+	"folders": [
+		{
+			"id": "auteur.id",
+			"name": "auteur",
+			"description": "",
+			"order": [
+				"auteur.getByCriteria",
+				"auteur.create",
+				"auteur.update",
+				"auteur.delete"
+			],
+			"owner": "1151918"
+		},
+		{
+			"id": "categorieLivre.id",
+			"name": "categorieLivre",
+			"description": "",
+			"order": [
+				"categorieLivre.getByCriteria",
+				"categorieLivre.create",
+				"categorieLivre.update",
+				"categorieLivre.delete"
+			],
+			"owner": "1151918"
+		},
+		{
+			"id": "fonctionnalite.id",
+			"name": "fonctionnalite",
+			"description": "",
+			"order": [
+				"fonctionnalite.getByCriteria",
+				"fonctionnalite.create",
+				"fonctionnalite.update",
+				"fonctionnalite.delete"
+			],
+			"owner": "1151918"
+		},
+		{
+			"id": "livre.id",
+			"name": "livre",
+			"description": "",
+			"order": [
+				"livre.getByCriteria",
+				"livre.create",
+				"livre.update",
+				"livre.delete"
+			],
+			"owner": "1151918"
+		},
+		{
+			"id": "livreAuteur.id",
+			"name": "livreAuteur",
+			"description": "",
+			"order": [
+				"livreAuteur.getByCriteria",
+				"livreAuteur.create",
+				"livreAuteur.update",
+				"livreAuteur.delete"
+			],
+			"owner": "1151918"
+		},
+		{
+			"id": "role.id",
+			"name": "role",
+			"description": "",
+			"order": [
+				"role.getByCriteria",
+				"role.create",
+				"role.update",
+				"role.delete"
+			],
+			"owner": "1151918"
+		},
+		{
+			"id": "roleFonctionnalite.id",
+			"name": "roleFonctionnalite",
+			"description": "",
+			"order": [
+				"roleFonctionnalite.getByCriteria",
+				"roleFonctionnalite.create",
+				"roleFonctionnalite.update",
+				"roleFonctionnalite.delete"
+			],
+			"owner": "1151918"
+		},
+		{
+			"id": "usager.id",
+			"name": "usager",
+			"description": "",
+			"order": [
+				"usager.getByCriteria",
+				"usager.create",
+				"usager.update",
+				"usager.delete"
+			],
+			"owner": "1151918"
+		},
+		{
+			"id": "users.id",
+			"name": "users",
+			"description": "",
+			"order": [
+				"users.getByCriteria",
+				"users.create",
+				"users.update",
+				"users.delete"
+			],
+			"owner": "1151918"
+		}
+	],
+	"requests": [
+		{
+			"id": "auteur.create",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{appUrl}}/auteur/create",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "auteur-create",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"nom\": \"\",\n\t\t\t\"prenoms\": \"\",\n\t\t\t\"specialite\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "auteur.update",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{appUrl}}/auteur/update",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "auteur-update",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"nom\": \"\",\n\t\t\t\"prenoms\": \"\",\n\t\t\t\"specialite\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "auteur.delete",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{appUrl}}/auteur/delete",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "auteur-delete",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "auteur.getByCriteria",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{appUrl}}/auteur/getByCriteria",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439015040,
+			"name": "auteur-getByCriteria",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"nom\": \"\",\n\t\t\"prenoms\": \"\",\n\t\t\"specialite\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"deletedAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"updatedBy\": \"\",\n\t\t\"deletedBy\": \"\",\n\t\t\"isDeleted\": \"\"\n\t}  \n}"
+		},
+		{
+			"id": "categorieLivre.create",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{appUrl}}/categorieLivre/create",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "categorieLivre-create",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"libelle\": \"\",\n\t\t\t\"code\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "categorieLivre.update",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{appUrl}}/categorieLivre/update",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "categorieLivre-update",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"libelle\": \"\",\n\t\t\t\"code\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "categorieLivre.delete",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{appUrl}}/categorieLivre/delete",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "categorieLivre-delete",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "categorieLivre.getByCriteria",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{appUrl}}/categorieLivre/getByCriteria",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439015040,
+			"name": "categorieLivre-getByCriteria",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"libelle\": \"\",\n\t\t\"code\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"deletedAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"updatedBy\": \"\",\n\t\t\"deletedBy\": \"\",\n\t\t\"isDeleted\": \"\"\n\t}  \n}"
+		},
+		{
+			"id": "fonctionnalite.create",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{appUrl}}/fonctionnalite/create",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "fonctionnalite-create",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"libelle\": \"\",\n\t\t\t\"code\": \"\",\n\t\t\t\"parentId\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "fonctionnalite.update",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{appUrl}}/fonctionnalite/update",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "fonctionnalite-update",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"libelle\": \"\",\n\t\t\t\"code\": \"\",\n\t\t\t\"parentId\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "fonctionnalite.delete",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{appUrl}}/fonctionnalite/delete",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "fonctionnalite-delete",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "fonctionnalite.getByCriteria",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{appUrl}}/fonctionnalite/getByCriteria",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439015040,
+			"name": "fonctionnalite-getByCriteria",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"libelle\": \"\",\n\t\t\"code\": \"\",\n\t\t\"parentId\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"deletedAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"updatedBy\": \"\",\n\t\t\"deletedBy\": \"\",\n\t\t\"isDeleted\": \"\"\n\t}  \n}"
+		},
+		{
+			"id": "livre.create",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{appUrl}}/livre/create",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "livre-create",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"titre\": \"\",\n\t\t\t\"categorieId\": \"\",\n\t\t\t\"maisonEdition\": \"\",\n\t\t\t\"nombreExemplaires\": \"\",\n\t\t\t\"nombrePages\": \"\",\n\t\t\t\"datePublication\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "livre.update",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{appUrl}}/livre/update",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "livre-update",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"titre\": \"\",\n\t\t\t\"categorieId\": \"\",\n\t\t\t\"maisonEdition\": \"\",\n\t\t\t\"nombreExemplaires\": \"\",\n\t\t\t\"nombrePages\": \"\",\n\t\t\t\"datePublication\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "livre.delete",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{appUrl}}/livre/delete",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "livre-delete",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "livre.getByCriteria",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{appUrl}}/livre/getByCriteria",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439015040,
+			"name": "livre-getByCriteria",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"titre\": \"\",\n\t\t\"categorieId\": \"\",\n\t\t\"maisonEdition\": \"\",\n\t\t\"nombreExemplaires\": \"\",\n\t\t\"nombrePages\": \"\",\n\t\t\"datePublication\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"deletedAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"updatedBy\": \"\",\n\t\t\"deletedBy\": \"\",\n\t\t\"isDeleted\": \"\"\n\t}  \n}"
+		},
+		{
+			"id": "livreAuteur.create",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{appUrl}}/livreAuteur/create",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "livreAuteur-create",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"livreId\": \"\",\n\t\t\t\"auteurId\": \"\",\n\t\t\t\"code\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "livreAuteur.update",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{appUrl}}/livreAuteur/update",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "livreAuteur-update",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"livreId\": \"\",\n\t\t\t\"auteurId\": \"\",\n\t\t\t\"code\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "livreAuteur.delete",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{appUrl}}/livreAuteur/delete",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "livreAuteur-delete",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "livreAuteur.getByCriteria",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{appUrl}}/livreAuteur/getByCriteria",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439015040,
+			"name": "livreAuteur-getByCriteria",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"livreId\": \"\",\n\t\t\"auteurId\": \"\",\n\t\t\"code\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"deletedAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"updatedBy\": \"\",\n\t\t\"deletedBy\": \"\",\n\t\t\"isDeleted\": \"\"\n\t}  \n}"
+		},
+		{
+			"id": "role.create",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{appUrl}}/role/create",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "role-create",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"libelle\": \"\",\n\t\t\t\"code\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "role.update",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{appUrl}}/role/update",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "role-update",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"libelle\": \"\",\n\t\t\t\"code\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "role.delete",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{appUrl}}/role/delete",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "role-delete",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "role.getByCriteria",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{appUrl}}/role/getByCriteria",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439015040,
+			"name": "role-getByCriteria",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"libelle\": \"\",\n\t\t\"code\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"deletedAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"updatedBy\": \"\",\n\t\t\"deletedBy\": \"\",\n\t\t\"isDeleted\": \"\"\n\t}  \n}"
+		},
+		{
+			"id": "roleFonctionnalite.create",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{appUrl}}/roleFonctionnalite/create",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "roleFonctionnalite-create",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"roleId\": \"\",\n\t\t\t\"fonctionnaliteId\": \"\",\n\t\t\t\"code\": \"\",\n\t\t\t\"libelle\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "roleFonctionnalite.update",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{appUrl}}/roleFonctionnalite/update",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "roleFonctionnalite-update",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"roleId\": \"\",\n\t\t\t\"fonctionnaliteId\": \"\",\n\t\t\t\"code\": \"\",\n\t\t\t\"libelle\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "roleFonctionnalite.delete",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{appUrl}}/roleFonctionnalite/delete",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "roleFonctionnalite-delete",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "roleFonctionnalite.getByCriteria",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{appUrl}}/roleFonctionnalite/getByCriteria",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439015040,
+			"name": "roleFonctionnalite-getByCriteria",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"roleId\": \"\",\n\t\t\"fonctionnaliteId\": \"\",\n\t\t\"code\": \"\",\n\t\t\"libelle\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"deletedAt\": \"\",\n\t\t\"isDeleted\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"updatedBy\": \"\",\n\t\t\"deletedBy\": \"\"\n\t}  \n}"
+		},
+		{
+			"id": "usager.create",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{appUrl}}/usager/create",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "usager-create",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"nom\": \"\",\n\t\t\t\"prenoms\": \"\",\n\t\t\t\"login\": \"\",\n\t\t\t\"passwd\": \"\",\n\t\t\t\"email\": \"\",\n\t\t\t\"matricule\": \"\",\n\t\t\t\"roleId\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "usager.update",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{appUrl}}/usager/update",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "usager-update",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"nom\": \"\",\n\t\t\t\"prenoms\": \"\",\n\t\t\t\"login\": \"\",\n\t\t\t\"passwd\": \"\",\n\t\t\t\"email\": \"\",\n\t\t\t\"matricule\": \"\",\n\t\t\t\"roleId\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "usager.delete",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{appUrl}}/usager/delete",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "usager-delete",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "usager.getByCriteria",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{appUrl}}/usager/getByCriteria",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439015040,
+			"name": "usager-getByCriteria",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"nom\": \"\",\n\t\t\"prenoms\": \"\",\n\t\t\"login\": \"\",\n\t\t\"passwd\": \"\",\n\t\t\"email\": \"\",\n\t\t\"matricule\": \"\",\n\t\t\"roleId\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"deletedAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"updatedBy\": \"\",\n\t\t\"deletedBy\": \"\",\n\t\t\"isDeleted\": \"\"\n\t}  \n}"
+		},
+		{
+			"id": "users.create",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{appUrl}}/users/create",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "users-create",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"nom\": \"\",\n\t\t\t\"prenoms\": \"\",\n\t\t\t\"login\": \"\",\n\t\t\t\"passwd\": \"\",\n\t\t\t\"email\": \"\",\n\t\t\t\"matricule\": \"\",\n\t\t\t\"roleId\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "users.update",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{appUrl}}/users/update",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "users-update",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"nom\": \"\",\n\t\t\t\"prenoms\": \"\",\n\t\t\t\"login\": \"\",\n\t\t\t\"passwd\": \"\",\n\t\t\t\"email\": \"\",\n\t\t\t\"matricule\": \"\",\n\t\t\t\"roleId\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "users.delete",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{appUrl}}/users/delete",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "users-delete",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "users.getByCriteria",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{appUrl}}/users/getByCriteria",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439015040,
+			"name": "users-getByCriteria",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"nom\": \"\",\n\t\t\"prenoms\": \"\",\n\t\t\"login\": \"\",\n\t\t\"passwd\": \"\",\n\t\t\"email\": \"\",\n\t\t\"matricule\": \"\",\n\t\t\"roleId\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"deletedAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"updatedBy\": \"\",\n\t\t\"deletedBy\": \"\",\n\t\t\"isDeleted\": \"\"\n\t}  \n}"
+		}
+	]
+}

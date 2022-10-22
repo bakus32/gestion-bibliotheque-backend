@@ -1,0 +1,55 @@
+/*
+ * Created on $today.date ( Time $today.time )
+ * Generator tool : $generator.name ( version $generator.version )
+ * Copyright 2019 Smile CI. All Rights Reserved.
+ */
+
+package ${target.javaPackageFromFolder(${SRC})};
+
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.xml.bind.annotation.XmlRootElement;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
+import ${ROOT_PKG}.helper.contrat.SearchParam;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+/**
+ * request object
+ * 
+ * @author Lazare yao, Smile Back-End developper
+ *
+ */
+@XmlRootElement
+@JsonInclude(Include.NON_NULL)
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
+public class ParameterDto implements Cloneable {
+
+
+	private Map<String, Object> params = new HashMap<String, Object>();
+
+	private String startDate;
+	private String endDate;
+	private String date;
+
+	
+	private String indexPattern;
+	private String parameters;
+	private Integer pos;
+	private String className;
+
+	private SearchParam<String> dateParam;
+	private SearchParam<String> startDateParam;
+	private SearchParam<String> endDateparam;
+
+	
+}

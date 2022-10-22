@@ -1,0 +1,55 @@
+spring.profiles.active=@spring.profiles.active@
+spring.datasource.platform=MySQL
+spring.messages.basename=errorMessage
+hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
+spring.jpa.properties.hibernate.id.new_generator_mappings=false
+spring.jpa.show-sql=false
+spring.messages.encoding=UTF-8
+spring.output.ansi.enabled=always
+
+server.port = 8080
+
+
+# JWT CONF
+jwt.header=Authorization
+jwt.secret=6cb4dab226b71108a7a2e13852dbdd60d4f2d5ba
+jwt.bearer=Bearer
+
+# THYMELEAF (ThymeleafAutoConfiguration)
+spring.thymeleaf.cache=false
+spring.thymeleaf.check-template=false
+spring.thymeleaf.check-template-location=true
+spring.thymeleaf.content-type=text/html
+spring.thymeleaf.enabled=true
+spring.thymeleaf.encoding=UTF-8
+spring.thymeleaf.mode=HTML5
+spring.thymeleaf.prefix=classpath:/templates/emails/
+spring.thymeleaf.suffix=.html
+
+# EMAIL CONFS
+smtp.mail.host=smtp.gmail.com
+smtp.mail.port=587
+smtp.mail.username=smile.backend@gmail.com
+smtp.mail.password=smile#2017
+
+
+# EMAIL TEMPLATES
+template.email.test=test
+template.email.welcome=welcome
+template.email.reset.forgotten.user.password=reset_forgotten_user_password_email
+template.email.reset.password.succes=reset_user_password_success_email
+template.email.notification.modification.compte=notification_modification_compte
+
+
+# FILE DIRECTORIES
+textfile.directory  = omer/files/text/
+image.directory     = omer/files/images/
+video.directory     = omer/files/videos/
+otherfile.directory = omer/files/others/
+
+# OTHERS PARAMS
+es.action.get.timeout=3000
+office.excel.max.line.number=2000
+
+
+

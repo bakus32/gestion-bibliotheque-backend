@@ -1,0 +1,137 @@
+
+/*
+ * Created on $today.date ( Time $today.time )
+ * Generator tool : $generator.name ( version $generator.version )
+ * Copyright 2017 Smile Backend generator. All Rights Reserved.
+ */
+
+#set($dollar="$")
+package ${target.javaPackageFromFolder(${SRC})};
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+/**
+ * Math Utils
+ * 
+ * @author Smile Backend generator
+ *
+ */
+
+@Component
+@Getter
+@NoArgsConstructor
+@ToString
+public class ParamsUtils {    	
+	
+	@Value("${dollar}{jwt.header}")
+	private String	tokenHeader;
+
+	@Value("${dollar}{jwt.secret}")
+	private String	secret;
+
+	@Value("${dollar}{jwt.bearer}")
+	private String	bearer;
+
+	@Value("${dollar}{smtp.mail.host}")
+	private String	smtpHost;
+
+	@Value("${dollar}{smtp.mail.port}")
+	private Integer	smtpPort;
+
+	@Value("${dollar}{smtp.mail.username}")
+	private String	smtpUsername;
+
+	@Value("${dollar}{smtp.mail.password}")
+	private String	smtpPassword;
+
+
+
+
+
+	//Urls
+
+	@Value("${dollar}{monitor.app.url}")
+	private String	monitorAppUrl;
+
+	@Value("${dollar}{url.root}")
+	private String	rootFilesUrl;
+
+	@Value("${dollar}{path.root}")
+	private String	rootFilesPath;
+
+	@Value("${dollar}{url.root.office.front}")
+	private String frontOfficeRootUrl;
+
+	@Value("${dollar}{url.root.office.back}")
+	private String backOfficeRootUrl;
+
+//	@Value("${dollar}{files.directory.report}")
+//	private String  filesDirectoryReport;
+
+
+
+
+
+	//Emails templates
+
+	@Value("${dollar}{template.email.test}")
+	private String testEmailTemplate;
+
+	@Value("${dollar}{template.email.welcome}")
+	private String welcomeEmailTemplate;
+
+	@Value("${dollar}{template.email.reset.forgotten.user.password}")
+	private String resetForgottenUserPasswordEmailTemplate;
+
+	@Value("${dollar}{template.email.reset.password.succes}")
+	private String resetPasswordSuccesEmailTemplate;
+
+	@Value("${dollar}{template.email.notification.modification.compte}")
+	private String notificationModificationCompteEmailTemplate;
+
+
+
+
+
+	//Files location
+
+
+	@Value("${dollar}{textfile.directory}")
+	private String			textfileDirectory;
+
+	@Value("${dollar}{image.directory}")
+	private String			imageDirectory;
+
+	@Value("${dollar}{video.directory}")
+	private String			videoDirectory;
+
+	@Value("${dollar}{otherfile.directory}")
+	private String			otherfileDirectory;
+
+	
+
+
+
+	//Others value
+	
+	
+	@Value("${dollar}{office.excel.max.line.number}")
+	private Integer			excelMaxLineNumber;
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+}

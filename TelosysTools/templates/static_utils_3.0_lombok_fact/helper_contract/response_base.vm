@@ -1,0 +1,29 @@
+
+/*
+ * Created on $today.date ( Time $today.time )
+ * Generator tool : $generator.name ( version $generator.version )
+ * Copyright 2018 Smile Bakend generator. All Rights Reserved.
+ */
+
+package ${target.javaPackageFromFolder(${SRC})};
+
+import lombok.*;
+import ${ROOT_PKG}.utils.Status;
+
+/**
+ * Response Base
+ * 
+ * @author Smile Bakend generator
+ *
+ */
+@Data
+@ToString
+@NoArgsConstructor
+public class ResponseBase {
+
+	protected Status	status;
+	protected boolean	hasError;
+	protected String	sessionUser;
+	protected Long		count;
+    protected String  	filePath;
+}

@@ -1,0 +1,22 @@
+spring.datasource.url=jdbc:mysql://178.62.28.169:3306/demo_db
+spring.datasource.username=root
+spring.datasource.password=root
+spring.datasource.driverClassName=com.mysql.jdbc.Driver
+
+# Actuator
+monitor.app.url=http://127.0.0.1:8080/war_name/monitor/health
+
+# Lien des api du back
+url.root=http://localhost:8080/war_name/
+
+# Chemin du repertoire de base ou les fichiers mainipules par l'application son stockes
+path.root           = /var/lib/tomcat/webapps/
+
+# pour le changement des password
+url.root.office.front=http://omer.ocitnetad.ci/
+url.root.office.back=http://omer.ocitnetad.ci/
+
+# Config REDIS
+redis.host=10.242.79.172
+redis.port=6379
+

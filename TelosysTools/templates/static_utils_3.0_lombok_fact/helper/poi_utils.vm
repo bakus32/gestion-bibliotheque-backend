@@ -1,0 +1,586 @@
+
+/*
+ * Created on 2019-05-05 ( Time 01:21:49 )
+ * Generator tool : Telosys Tools Generator ( version 3.0.0 )
+ * Copyright 2017 Smile Backend generator. All Rights Reserved.
+ */
+
+package ${ROOT_PKG}.helper;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.commons.lang.StringUtils;
+import org.apache.poi.ss.usermodel.BorderStyle;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.CellValue;
+import org.apache.poi.ss.usermodel.DataValidationConstraint.OperatorType;
+import org.apache.poi.ss.usermodel.DataValidationConstraint.ValidationType;
+import org.apache.poi.ss.usermodel.FormulaEvaluator;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.util.CellRangeAddress;
+import org.apache.poi.ss.util.CellRangeAddressList;
+import org.apache.poi.ss.util.CellReference;
+import org.apache.poi.ss.util.RegionUtil;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFClientAnchor;
+import org.apache.poi.xssf.usermodel.XSSFComment;
+import org.apache.poi.xssf.usermodel.XSSFCreationHelper;
+import org.apache.poi.xssf.usermodel.XSSFDataValidation;
+import org.apache.poi.xssf.usermodel.XSSFDataValidationConstraint;
+import org.apache.poi.xssf.usermodel.XSSFDataValidationHelper;
+import org.apache.poi.xssf.usermodel.XSSFDrawing;
+import org.apache.poi.xssf.usermodel.XSSFFormulaEvaluator;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+
+public class PoiUtils {
+
+	static final String   alphabet     = "#abcdefghijklmnopqrstuvwxyz";
+
+
+
+
+
+
+	public static XSSFCell getCell(XSSFRow row, Integer index){
+		return (row.getCell(index) == null)? row.createCell(index) : row.getCell(index);
+	}
+
+	public static Cell getOrCreateCell(Sheet sheet, int rowIdx, int colIdx) {
+		Row row = sheet.getRow(rowIdx);
+		if (row == null) {
+			row = sheet.createRow(rowIdx);
+		}
+
+		Cell cell = row.getCell(colIdx);
+		if (cell == null) {
+			cell = row.createCell(colIdx);
+		}
+
+		return cell;
+	}
+
+	public static Integer getColumnIndex(String column){
+		column = new StringBuffer(column.toLowerCase()).reverse().toString();
+		Double columnPosition = 0d;
+		for (int i = 0; i < column.length(); i++) {
+			columnPosition += alphabet.indexOf(column.charAt(i)) * Math.pow(26, i);
+		}
+		return columnPosition.intValue() - 1;
+	}
+
+	public static XSSFRow getRow(XSSFSheet sheet, Integer rowIndex) {
+		if(sheet == null || rowIndex == null) {
+			return null;
+		}
+		XSSFRow row = sheet.getRow(rowIndex);
+		if(row == null){
+			// Creating a new Row in existing XLSX sheet
+			row = sheet.createRow(rowIndex);
+		}
+		return row;
+	}
+
+	/**
+	 * Remove a row by its index
+	 * @param sheet a Excel sheet
+	 * @param rowIndex a 0 based index of removing row
+	 */
+	public static void removeRow(XSSFSheet sheet, int rowIndex) {
+		int lastRowNum=sheet.getLastRowNum();
+		if(rowIndex >= 0 ){
+			XSSFRow removingRow = sheet.getRow(rowIndex);
+			if(rowIndex < lastRowNum){
+				clearRow(sheet, removingRow);
+				sheet.shiftRows(rowIndex + 1, lastRowNum, -1);
+			}
+			else 
+			{
+				if(rowIndex==lastRowNum){
+					clearRow(sheet, removingRow);
+				}
+			}
+		}
+	}
+
+
+	/**
+	 * Clear a given row in a sheet (ie clear each cell of the row). The row still present in the sheet but will be empty.
+	 * @param row to be clear
+	 */
+	public static void clearRow(XSSFSheet sheet, Row row) {
+		if(row != null){
+			sheet.removeRow(row);
+		}	
+	}
+
+	public static boolean isEmptyRow(Row row) {
+		if (row == null) {
+			return true;
+		}
+		if (row.getLastCellNum() <= 0) {
+			return true;
+		}
+		for (int cellNum = row.getFirstCellNum(); cellNum < row.getLastCellNum(); cellNum++) {
+			Cell cell = row.getCell(cellNum);
+			if (cell != null && cell.getCellType() != CellType.BLANK && StringUtils.isNotBlank(cell.toString())) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	public static String getCellvalue(CellValue cellValue) {
+		switch (cellValue.getCellType()) {
+		case BOOLEAN:
+			return cellValue.getBooleanValue()+"";
+		case NUMERIC:
+			return cellValue.getNumberValue()+"";
+		case STRING:
+			return cellValue.getStringValue()+"";
+		case BLANK:
+		case ERROR:
+
+			// CELL_TYPE_FORMULA will never happen
+		case FORMULA: 
+			return "";
+		default:
+			return "";
+		}
+	}
+
+
+	public static XSSFSheet insertSelectInSheet(XSSFSheet sheet, List<String> datas, int firstRow, int lastRow, int firstCol, int lastCol) {
+		XSSFDataValidationHelper dvHelper = new XSSFDataValidationHelper(sheet);
+
+		XSSFDataValidationConstraint dvConstraint = (XSSFDataValidationConstraint)dvHelper.createExplicitListConstraint(datas.toArray(new String[0]));
+		CellRangeAddressList addressList = new CellRangeAddressList(firstRow, lastRow, firstCol, lastCol);
+
+		XSSFDataValidation validation = (XSSFDataValidation)dvHelper.createValidation(dvConstraint, addressList);
+		validation.setShowErrorBox(true);
+
+		sheet.addValidationData(validation);
+		return sheet;
+	}
+
+	public static XSSFSheet insertCellDataVaditator(XSSFSheet sheet, Integer validationType, Integer operatorType, String formula1, String formula2, int firstRow, int lastRow, int firstCol, int lastCol) throws ParseException {
+		XSSFDataValidationHelper dvHelper = new XSSFDataValidationHelper(sheet);
+
+		XSSFDataValidationConstraint dvConstraint = null;
+
+		switch (validationType) {
+		case ValidationType.DATE:
+			String dateFormat = "dd/mm/yyyy";
+			//DVConstraint dvConstraint2 = DVConstraint.createDateConstraint(operatorType, formula1, formula2, dateFormat);
+			dvConstraint = (XSSFDataValidationConstraint)dvHelper.createDateConstraint(operatorType, formula1, formula2, dateFormat);
+			break;
+
+		case ValidationType.TIME:
+			dvConstraint = (XSSFDataValidationConstraint)dvHelper.createTimeConstraint(operatorType, formula1, formula2);
+			break;
+
+		case ValidationType.INTEGER:
+		case ValidationType.DECIMAL:
+		case ValidationType.TEXT_LENGTH:
+			dvConstraint = (XSSFDataValidationConstraint)dvHelper.createNumericConstraint(validationType, operatorType, formula1, formula2);
+			break;
+
+		case ValidationType.FORMULA:
+			dvConstraint = (XSSFDataValidationConstraint)dvHelper.createCustomConstraint(formula1);
+			break;
+
+		case ValidationType.LIST:
+			String listFormula = formula1;
+			dvConstraint = (XSSFDataValidationConstraint)dvHelper.createFormulaListConstraint(listFormula);
+			break;
+
+		default:
+			throw new RuntimeException("Le type de la vaidation '"+validationType+"' n'est pas reconnu !");
+		}
+
+		CellRangeAddressList addressList = new CellRangeAddressList(firstRow, lastRow, firstCol, lastCol);
+
+		XSSFDataValidation validation = (XSSFDataValidation)dvHelper.createValidation(dvConstraint, addressList);
+		validation.setShowErrorBox(true);
+
+		if(validationType.equals(ValidationType.DATE) && operatorType.equals(OperatorType.BETWEEN)) {
+			SimpleDateFormat dateValidationSdf = new SimpleDateFormat("'DATE'(yyyy,MM,dd)");
+			SimpleDateFormat dateSdf = new SimpleDateFormat("dd/MM/yyyy");
+			validation.createErrorBox("Date invalide", "La date doit être comprise dans l'intervalle "+dateSdf.format(dateValidationSdf.parse(formula1))+" - "+dateSdf.format(dateValidationSdf.parse(formula2))+" de l'année judiciaire !");
+		}
+
+		if(validationType.equals(ValidationType.TIME) && operatorType.equals(OperatorType.BETWEEN)) {
+			SimpleDateFormat timeValidationSdf = new SimpleDateFormat("'TIME'(HH,mm,ss)");
+			SimpleDateFormat timeSdf = new SimpleDateFormat("HH:mm:ss");
+			validation.createErrorBox("Heure invalide", "L'heure doit être comprise dans l'intervalle "+timeSdf.format(timeValidationSdf.parse(formula1))+" - "+timeSdf.format(timeValidationSdf.parse(formula2))+" !");
+		}	
+
+		sheet.addValidationData(validation);
+		return sheet;
+	}
+
+	public static Integer getAddressOfSelectedDataInARow(String data, Boolean dataIsCellAdress, XSSFSheet sheet, Integer rowIndex, XSSFCell calculationCell) {
+		if(dataIsCellAdress) {
+			calculationCell.setCellFormula("ADDRESS("+rowIndex+",MATCH("+data+","+rowIndex+":"+rowIndex+",0), 4)");
+		}
+		else {
+			calculationCell.setCellFormula("ADDRESS("+rowIndex+",MATCH(\""+data+"\","+rowIndex+":"+rowIndex+",0), 4)");
+		}
+
+		FormulaEvaluator evaluator = sheet.getWorkbook().getCreationHelper().createFormulaEvaluator();
+		CellValue cellValue = evaluator.evaluate(calculationCell);
+
+		CellReference cellReference = new CellReference(cellValue.getStringValue());
+
+		return (int)cellReference.getCol();
+	}
+
+	/** 
+	 * Write data to cells within a row. 
+	 * 
+	 * @param row An instance of the XSSFRow class encapsulating a reference 
+	 *            to the row that is to be populated with data. 
+	 * @param label An instance of the String class encapsulating the 
+	 *              label that shoule be placed alongside the data. Currently 
+	 *              the method assumes that the label will be written into the 
+	 *              first cell on the row. 
+	 * @param data An array of String(s) where each element of the array 
+	 *             encapsulates the data that will be written into a single 
+	 *             cell. 
+	 * @return A primitive int whose value represents the index of the right 
+	 *         most cell created and populated by this method's code. 
+	 */ 
+	public static int populateRow(XSSFRow row, String label, List<String> datas) { 
+		XSSFCell cell = null; 
+		int columnIndex = 0; 
+		cell = row.createCell(columnIndex++); 
+		cell.setCellValue(label);
+		if(Utilities.isNotEmpty(datas)) {
+			for (String item : datas) { 
+				cell = row.createCell(columnIndex++); 
+				cell.setCellValue(item); 
+			} 
+		}
+
+		return (columnIndex); 
+	}
+
+	public static void populateParams(XSSFSheet sheet, Map<String, String> params) {
+		if(sheet != null && params != null && !params.isEmpty()) {
+			XSSFRow row = null;
+			XSSFCell cell = null;
+			Integer rowIndex = sheet.getLastRowNum();
+			if(rowIndex != 0) {
+				rowIndex ++;
+			}
+			for (Map.Entry<String, String> param : params.entrySet()) {
+				row = getRow(sheet, rowIndex);
+
+				cell = getCell(row, getColumnIndex("A"));
+				cell.setCellValue(param.getKey());
+
+				cell = getCell(row, getColumnIndex("B"));
+				cell.setCellValue(param.getValue());
+
+				rowIndex ++;
+			}
+		}
+	}
+
+	public static int setMerge(Sheet sheet, int numRow, int untilRow, int numCol, int untilCol, BorderStyle border, short indexedColor) {
+		CellRangeAddress cellMerge = new CellRangeAddress(numRow, untilRow, numCol, untilCol);
+		return setMerge(sheet, cellMerge, border, indexedColor);
+	}
+
+	public static int setMerge(Sheet sheet, CellRangeAddress region, BorderStyle border, short indexedColor) {
+		int mergeIndex = sheet.addMergedRegion(region);
+		if (border != null || indexedColor >= 0) {
+			setBordersToMergedCells(sheet, region, border, indexedColor);
+		}
+		return mergeIndex;
+	}
+
+	public static void setBordersToMergedCells(Sheet sheet, CellRangeAddress rangeAddress, BorderStyle border, short indexedColor) {
+		if (border != null) {
+			RegionUtil.setBorderTop(border, rangeAddress, sheet);
+			RegionUtil.setBorderLeft(border, rangeAddress, sheet);
+			RegionUtil.setBorderRight(border, rangeAddress, sheet);
+			RegionUtil.setBorderBottom(border, rangeAddress, sheet);
+		}
+
+		if (indexedColor >= 0) {
+			RegionUtil.setBottomBorderColor(indexedColor, rangeAddress, sheet);
+			RegionUtil.setTopBorderColor(indexedColor, rangeAddress, sheet);
+			RegionUtil.setLeftBorderColor(indexedColor, rangeAddress, sheet);
+			RegionUtil.setRightBorderColor(indexedColor, rangeAddress, sheet);
+		}
+	}
+
+	public static boolean sameRegion(CellRangeAddress region1, CellRangeAddress region2) {
+		if((region1 == null && region2 != null) || (region1 != null && region2 == null)) {
+			return false;
+		}
+		return (region1.getFirstRow() == region2.getFirstRow() && region1.getLastRow() == region2.getLastRow() 
+				&& region1.getFirstColumn() == region2.getFirstColumn() && region1.getLastColumn() == region2.getLastColumn());
+	}
+
+	public static XSSFCell addComment(XSSFCell cell, int rowIdx, String author, String commentText) {
+		XSSFSheet sheet = cell.getSheet();
+		XSSFCreationHelper factory = sheet.getWorkbook().getCreationHelper();
+		XSSFClientAnchor anchor = factory.createClientAnchor();
+		anchor.setCol1(cell.getColumnIndex() + 1); //the box of the comment starts at this given column...
+		anchor.setCol2(cell.getColumnIndex() + 5); //...and ends at that given column
+		anchor.setRow1(rowIdx - 1); //one row above the cell...
+		anchor.setRow2(rowIdx + 3); //...and 3 rows high
+
+		XSSFDrawing drawing = sheet.createDrawingPatriarch();
+		XSSFComment comment = drawing.createCellComment(anchor);
+		//set the comment text and author
+		comment.setString(factory.createRichTextString(commentText));
+		comment.setAuthor(author);
+
+		cell.setCellComment(comment);
+
+		return cell;
+	}
+
+	/*
+	 * Takes an existing Cell and merges all the styles and forumla into the new
+	 * one
+	 */
+	public static void cloneCell(Cell cNew, Cell cOld) {
+		cNew.setCellComment(cOld.getCellComment());
+		cNew.setCellStyle(cOld.getCellStyle());
+
+		switch (cOld.getCellType()) {
+			case BOOLEAN: {
+				cNew.setCellValue(cOld.getBooleanCellValue());
+				break;
+			}
+			case NUMERIC: {
+				cNew.setCellValue(cOld.getNumericCellValue());
+				break;
+			}
+			case STRING: {
+				cNew.setCellValue(cOld.getStringCellValue());
+				break;
+			}
+			case ERROR: {
+				cNew.setCellValue(cOld.getErrorCellValue());
+				break;
+			}
+			case FORMULA: {
+				cNew.setCellFormula(cOld.getCellFormula());
+				break;
+			}
+			case BLANK: {
+				break;
+			}
+			case _NONE: {
+				break;
+			}
+		}
+	}
+
+	public static int getNumberOfColumns(Workbook workbook, int sheetIndex, int rowIndex) {
+
+		Sheet sheet = workbook.getSheetAt(sheetIndex);
+		// get header row
+		Row headerRow = sheet.getRow(rowIndex);
+		int nrCol = headerRow.getLastCellNum();
+
+		return nrCol;
+	}
+
+	public static int getNumberOfColumns(Workbook workbook, int sheetIndex) {
+		return getNumberOfColumns(workbook, sheetIndex, 0);
+	}
+
+	public static void writeToFile(Workbook workbook, String fileName) throws IOException {
+		FileOutputStream fileOut = new FileOutputStream(fileName);
+		workbook.write(fileOut);
+		fileOut.close();
+	}
+
+	public static int getNumberOfRows(Workbook workbook, int sheetIndex) {
+
+		int sheetNumber = workbook.getNumberOfSheets();
+		if (sheetIndex >= sheetNumber) {
+			throw new RuntimeException("Sheet index " + sheetIndex+ " invalid, we have " + sheetNumber + " sheets");
+		}
+
+		Sheet sheet = workbook.getSheetAt(sheetIndex);
+		int rowNum = sheet.getLastRowNum() + 1;
+
+		return rowNum;
+	}
+
+	public static void insertNewColumnBefore(Workbook workbook, int sheetIndex, int columnIndex) {
+		FormulaEvaluator evaluator = workbook.getCreationHelper().createFormulaEvaluator();
+		evaluator.clearAllCachedResultValues();
+
+		Sheet sheet = workbook.getSheetAt(sheetIndex);
+		int nrRows = getNumberOfRows(workbook, sheetIndex);
+		int nrCols = getNumberOfColumns(workbook, sheetIndex);
+		System.out.println("Inserting new column at " + columnIndex+", nrRows="+nrRows+", nrCols="+nrCols);
+
+		for (int row = 0; row < nrRows; row++) {
+			Row r = sheet.getRow(row);
+
+			if (r == null) {
+				continue;
+			}
+
+			// shift to right
+			for (int col = nrCols; col > columnIndex; col--) {
+				Cell rightCell = r.getCell(col);
+				if (rightCell != null) {
+					r.removeCell(rightCell);
+				}
+
+				Cell leftCell = r.getCell(col - 1);
+
+				if (leftCell != null) {
+					Cell newCell = r.createCell(col, leftCell.getCellType());
+					cloneCell(newCell, leftCell);
+					if (newCell.getCellType() == CellType.FORMULA) {
+						newCell.setCellFormula(updateFormula(newCell.getCellFormula(), columnIndex));
+						evaluator.notifySetFormula(newCell);
+						CellValue cellValue = evaluator.evaluate(newCell);
+						evaluator.evaluateFormulaCell(newCell);
+						System.out.println(cellValue);
+					}
+				}
+			}
+
+			// delete old column
+			CellType cellType = CellType.BLANK;
+
+			Cell currentEmptyWeekCell = r.getCell(columnIndex);
+			if (currentEmptyWeekCell != null) {
+				//cellType = currentEmptyWeekCell.getCellType();
+				r.removeCell(currentEmptyWeekCell);
+			}
+
+			// create new column
+			r.createCell(columnIndex, cellType);
+		}
+
+		// Adjust the column widths
+		for (int col = nrCols; col > columnIndex; col--) {
+			sheet.setColumnWidth(col, sheet.getColumnWidth(col - 1));
+		}
+
+		// currently updates formula on the last cell of the moved column
+		// TODO: update all cells if their formulas contain references to the moved cell
+		//		Row specialRow = sheet.getRow(nrRows-1);
+		//		Cell cellFormula = specialRow.createCell(nrCols - 1);
+		//		cellFormula.setCellType(XSSFCell.CELL_TYPE_FORMULA);
+		//		cellFormula.setCellFormula(formula);
+
+		XSSFFormulaEvaluator.evaluateAllFormulaCells(workbook);
+	}
+
+	public static void insertColumnBefore(Workbook workbook, int sheetIndex, int insertionColumnIndex, int numberOfColumnToInsert, CellStyle insertionCellStyle) {
+		FormulaEvaluator evaluator = workbook.getCreationHelper().createFormulaEvaluator();
+		evaluator.clearAllCachedResultValues();
+
+		Sheet sheet = workbook.getSheetAt(sheetIndex);
+		int nrRows = getNumberOfRows(workbook, sheetIndex);
+		int maxNrCol = 0; 
+
+		for (int rowIndex = 0; rowIndex < nrRows; rowIndex++) {
+			Row r = sheet.getRow(rowIndex);
+			if (r == null) {
+				continue;
+			}
+			
+			// shift to right
+			int nrCols = getNumberOfColumns(workbook, sheetIndex, rowIndex);
+			if(nrCols > maxNrCol) {maxNrCol = nrCols;}
+			for (int columnIndex = nrCols-1; columnIndex >= insertionColumnIndex ; columnIndex--) {
+				Cell rightCell = r.getCell(columnIndex + numberOfColumnToInsert);
+				if (rightCell != null) {
+					r.removeCell(rightCell);
+				}
+
+				Cell leftCell = r.getCell(columnIndex);
+				if (leftCell != null) {
+					Cell newCell = r.createCell(columnIndex + numberOfColumnToInsert, leftCell.getCellType());
+					cloneCell(newCell, leftCell);
+					if (newCell.getCellType() == CellType.FORMULA) {
+						String existingColName = CellReference.convertNumToColString(columnIndex); 
+						String newColName = CellReference.convertNumToColString(columnIndex + numberOfColumnToInsert);
+						String newCellFormula = newCell.getCellFormula().replace(existingColName, newColName);
+						newCell.setCellFormula(newCellFormula);
+						evaluator.notifySetFormula(newCell);
+						evaluator.evaluate(newCell);
+						evaluator.evaluateFormulaCell(newCell);
+						//System.out.println(cellValue);
+					}
+				}
+				
+				// delete old column
+				Cell currentEmptyWeekCell = r.getCell(columnIndex);
+				if (currentEmptyWeekCell != null) {
+					r.removeCell(currentEmptyWeekCell);
+				}
+				
+				// create new column
+				Cell cell = r.createCell(columnIndex, CellType.BLANK);
+				cell.setCellStyle(insertionCellStyle);
+			}
+			
+			int numberOfCelltoMove = nrCols - insertionColumnIndex;
+			if(numberOfColumnToInsert > numberOfCelltoMove) {
+				int remainningNumberofCell = numberOfColumnToInsert - numberOfCelltoMove;
+				for (int i = 1 ; i <= remainningNumberofCell; i++) {
+					int columnIndex = insertionColumnIndex + i;
+					Cell cell = r.createCell(columnIndex, CellType.BLANK);
+					cell.setCellStyle(insertionCellStyle);
+				}
+			}
+		}
+
+		// Adjust the column widths
+		for (int columnIndex = maxNrCol-1; columnIndex > insertionColumnIndex; columnIndex--) {
+			sheet.setColumnWidth(columnIndex, sheet.getColumnWidth(columnIndex - 1));
+		}
+
+		// currently updates formula on the last cell of the moved column
+		// TODO: update all cells if their formulas contain references to the moved cell
+		//		Row specialRow = sheet.getRow(nrRows-1);
+		//		Cell cellFormula = specialRow.createCell(nrCols - 1);
+		//		cellFormula.setCellType(XSSFCell.CELL_TYPE_FORMULA);
+		//		cellFormula.setCellFormula(formula);
+
+		XSSFFormulaEvaluator.evaluateAllFormulaCells(workbook);
+	}
+
+	/**
+	 * Replaces occurences of the text representation of columnIndex to columnIndex+1.
+	 * Ex:
+	 * "B6:B8" (columnIndex = 2) -> "C6:C8" (columnIndex = 3)
+	 *
+	 *
+	 * @param cellFormula
+	 * @param columnIndex
+	 * @return
+	 */
+	public static String updateFormula(String cellFormula, int columnIndex) {
+		String existingColName = CellReference.convertNumToColString(columnIndex); 
+		String newColName = CellReference.convertNumToColString(columnIndex+1);
+		String newCellFormula = cellFormula.replace(existingColName, newColName);
+		return newCellFormula;
+	}
+
+}

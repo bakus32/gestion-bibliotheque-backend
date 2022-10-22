@@ -1,0 +1,25 @@
+/*
+ * Created on $today.date ( Time $today.time )
+ * Generator tool : $generator.name ( version $generator.version )
+ * Copyright 2018 Smile Backend generator. All Rights Reserved.
+ */
+
+package ${target.javaPackageFromFolder(${SRC})};
+
+
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Target;
+
+import org.mapstruct.Qualifier;
+
+/**
+ * Request Base
+ * 
+ * @author Smile Backend generator
+ *
+ */
+@Qualifier
+@Target(ElementType.METHOD)
+public @interface FullTransformerQualifier {
+
+}

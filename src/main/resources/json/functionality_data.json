@@ -1,0 +1,222 @@
+{
+	"user": 1,
+	"datas": [
+		{
+			"code": "AUTEUR",
+			"name": "AUTEUR"
+		},
+		{
+			"code": "VIEW_AUTEUR",
+			"parentCode": "AUTEUR",
+			"name": "VIEW AUTEUR"
+		},
+		{
+			"code": "CREATE_AUTEUR",
+			"parentCode": "AUTEUR",
+			"name": "CREATE AUTEUR"
+		},
+		{
+			"code": "UPDATE_AUTEUR",
+			"parentCode": "AUTEUR",
+			"name": "UPDATE AUTEUR"
+		},
+		{
+			"code": "DELETE_AUTEUR",
+			"parentCode": "AUTEUR",
+			"name": "DELETE AUTEUR"
+		},
+		{
+			"code": "CATEGORIE_LIVRE",
+			"name": "CATEGORIE_LIVRE"
+		},
+		{
+			"code": "VIEW_CATEGORIE_LIVRE",
+			"parentCode": "CATEGORIE_LIVRE",
+			"name": "VIEW CATEGORIE_LIVRE"
+		},
+		{
+			"code": "CREATE_CATEGORIE_LIVRE",
+			"parentCode": "CATEGORIE_LIVRE",
+			"name": "CREATE CATEGORIE_LIVRE"
+		},
+		{
+			"code": "UPDATE_CATEGORIE_LIVRE",
+			"parentCode": "CATEGORIE_LIVRE",
+			"name": "UPDATE CATEGORIE_LIVRE"
+		},
+		{
+			"code": "DELETE_CATEGORIE_LIVRE",
+			"parentCode": "CATEGORIE_LIVRE",
+			"name": "DELETE CATEGORIE_LIVRE"
+		},
+		{
+			"code": "FONCTIONNALITE",
+			"name": "FONCTIONNALITE"
+		},
+		{
+			"code": "VIEW_FONCTIONNALITE",
+			"parentCode": "FONCTIONNALITE",
+			"name": "VIEW FONCTIONNALITE"
+		},
+		{
+			"code": "CREATE_FONCTIONNALITE",
+			"parentCode": "FONCTIONNALITE",
+			"name": "CREATE FONCTIONNALITE"
+		},
+		{
+			"code": "UPDATE_FONCTIONNALITE",
+			"parentCode": "FONCTIONNALITE",
+			"name": "UPDATE FONCTIONNALITE"
+		},
+		{
+			"code": "DELETE_FONCTIONNALITE",
+			"parentCode": "FONCTIONNALITE",
+			"name": "DELETE FONCTIONNALITE"
+		},
+		{
+			"code": "LIVRE",
+			"name": "LIVRE"
+		},
+		{
+			"code": "VIEW_LIVRE",
+			"parentCode": "LIVRE",
+			"name": "VIEW LIVRE"
+		},
+		{
+			"code": "CREATE_LIVRE",
+			"parentCode": "LIVRE",
+			"name": "CREATE LIVRE"
+		},
+		{
+			"code": "UPDATE_LIVRE",
+			"parentCode": "LIVRE",
+			"name": "UPDATE LIVRE"
+		},
+		{
+			"code": "DELETE_LIVRE",
+			"parentCode": "LIVRE",
+			"name": "DELETE LIVRE"
+		},
+		{
+			"code": "LIVRE_AUTEUR",
+			"name": "LIVRE_AUTEUR"
+		},
+		{
+			"code": "VIEW_LIVRE_AUTEUR",
+			"parentCode": "LIVRE_AUTEUR",
+			"name": "VIEW LIVRE_AUTEUR"
+		},
+		{
+			"code": "CREATE_LIVRE_AUTEUR",
+			"parentCode": "LIVRE_AUTEUR",
+			"name": "CREATE LIVRE_AUTEUR"
+		},
+		{
+			"code": "UPDATE_LIVRE_AUTEUR",
+			"parentCode": "LIVRE_AUTEUR",
+			"name": "UPDATE LIVRE_AUTEUR"
+		},
+		{
+			"code": "DELETE_LIVRE_AUTEUR",
+			"parentCode": "LIVRE_AUTEUR",
+			"name": "DELETE LIVRE_AUTEUR"
+		},
+		{
+			"code": "ROLE",
+			"name": "ROLE"
+		},
+		{
+			"code": "VIEW_ROLE",
+			"parentCode": "ROLE",
+			"name": "VIEW ROLE"
+		},
+		{
+			"code": "CREATE_ROLE",
+			"parentCode": "ROLE",
+			"name": "CREATE ROLE"
+		},
+		{
+			"code": "UPDATE_ROLE",
+			"parentCode": "ROLE",
+			"name": "UPDATE ROLE"
+		},
+		{
+			"code": "DELETE_ROLE",
+			"parentCode": "ROLE",
+			"name": "DELETE ROLE"
+		},
+		{
+			"code": "ROLE_FONCTIONNALITE",
+			"name": "ROLE_FONCTIONNALITE"
+		},
+		{
+			"code": "VIEW_ROLE_FONCTIONNALITE",
+			"parentCode": "ROLE_FONCTIONNALITE",
+			"name": "VIEW ROLE_FONCTIONNALITE"
+		},
+		{
+			"code": "CREATE_ROLE_FONCTIONNALITE",
+			"parentCode": "ROLE_FONCTIONNALITE",
+			"name": "CREATE ROLE_FONCTIONNALITE"
+		},
+		{
+			"code": "UPDATE_ROLE_FONCTIONNALITE",
+			"parentCode": "ROLE_FONCTIONNALITE",
+			"name": "UPDATE ROLE_FONCTIONNALITE"
+		},
+		{
+			"code": "DELETE_ROLE_FONCTIONNALITE",
+			"parentCode": "ROLE_FONCTIONNALITE",
+			"name": "DELETE ROLE_FONCTIONNALITE"
+		},
+		{
+			"code": "USAGER",
+			"name": "USAGER"
+		},
+		{
+			"code": "VIEW_USAGER",
+			"parentCode": "USAGER",
+			"name": "VIEW USAGER"
+		},
+		{
+			"code": "CREATE_USAGER",
+			"parentCode": "USAGER",
+			"name": "CREATE USAGER"
+		},
+		{
+			"code": "UPDATE_USAGER",
+			"parentCode": "USAGER",
+			"name": "UPDATE USAGER"
+		},
+		{
+			"code": "DELETE_USAGER",
+			"parentCode": "USAGER",
+			"name": "DELETE USAGER"
+		},
+		{
+			"code": "USERS",
+			"name": "USERS"
+		},
+		{
+			"code": "VIEW_USERS",
+			"parentCode": "USERS",
+			"name": "VIEW USERS"
+		},
+		{
+			"code": "CREATE_USERS",
+			"parentCode": "USERS",
+			"name": "CREATE USERS"
+		},
+		{
+			"code": "UPDATE_USERS",
+			"parentCode": "USERS",
+			"name": "UPDATE USERS"
+		},
+		{
+			"code": "DELETE_USERS",
+			"parentCode": "USERS",
+			"name": "DELETE USERS"
+		}
+
+	]
+}
